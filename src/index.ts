@@ -4,7 +4,6 @@ import { ConfigPlugin, withPlugins } from 'expo/config-plugins'
 import { withAndroidChannelPlugin } from './android/withAndroidChannelPlugin'
 import { withChannelAppDelegate } from './ios/withChannelAppDelegate'
 import { withChannelInfoPlist } from './ios/withChannelInfoPlist'
-import { withChannelPodPlugin } from './ios/withChannelPodPlugin'
 import { ChannelPluginProps } from './types'
 
 const withIosChannelPlugin: ConfigPlugin<ChannelPluginProps> = (
@@ -12,7 +11,6 @@ const withIosChannelPlugin: ConfigPlugin<ChannelPluginProps> = (
   props: ChannelPluginProps
 ) => {
   return withPlugins(config, [
-    [withChannelPodPlugin, props],
     withChannelAppDelegate,
     [withChannelInfoPlist, props],
   ])
